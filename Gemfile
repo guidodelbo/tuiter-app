@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
+gem 'bcrypt', '~> 3.1.13'
 gem 'bootstrap-sass', '~> 3.4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
