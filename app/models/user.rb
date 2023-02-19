@@ -1,13 +1,20 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i.freeze
 
-  before_save { email.downcase! }
+  attr_accessor :remember_token
 
   has_secure_password
+
+  before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -18,5 +25,9 @@ class User < ApplicationRecord
            end
 
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
   end
 end
