@@ -41,3 +41,5 @@ yarn-debug.log*
 
 .solargraph.yml
 config/definitions.rb
+
+.DS_Store
