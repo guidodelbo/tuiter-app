@@ -8,14 +8,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    user = User.new(user_params)
 
-    if @user.save
+    if user.save
       # to guard against session-fixation attacks
       reset_session
-      log_in @user
+      remember user
+      log_in user
       flash[:success] = 'Welcome to Tuiter!'
-      redirect_to @user
+      redirect_to user
     else
       render 'new'
     end
