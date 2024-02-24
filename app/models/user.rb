@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }
+  # allowing nil safe since 'has_secure_password' includes a separate presence validation that catches nil passwords
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # Returns the hash digest of the given string.
   def self.digest(string)
