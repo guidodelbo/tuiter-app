@@ -8,7 +8,7 @@ gem 'bcrypt', '~> 3.1.13'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
-gem 'bundler', '2.4.22'
+gem 'bundler', '2.2.17'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'faker', '2.11.0'
 gem 'jbuilder', '~> 2.7'
