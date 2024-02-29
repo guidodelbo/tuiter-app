@@ -283,6 +283,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bootstrap-sass (~> 3.4.1)
   bootstrap-will_paginate (= 1.0.0)
+  bundler (= 2.4.22)
   byebug
   capybara (>= 3.26)
   faker (= 2.11.0)
