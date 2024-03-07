@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'faker', '2.11.0'
 gem 'jbuilder', '~> 2.7'
+gem 'postmark-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
 gem 'sass-rails', '>= 6'
@@ -28,6 +29,7 @@ gem 'will_paginate', '3.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
   gem 'sqlite3', '~> 1.4'
 end
 

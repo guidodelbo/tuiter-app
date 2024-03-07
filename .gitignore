@@ -43,3 +43,5 @@ yarn-debug.log*
 config/definitions.rb
 
 .DS_Store
+
+.env
