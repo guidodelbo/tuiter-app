@@ -11,9 +11,15 @@ class UserMailer < ApplicationMailer
     )
   end
 
-  def password_reset
-    @greeting = 'Hi'
+  def password_reset(user)
+    @user = user
 
-    mail to: 'to@example.org'
+    mail(
+      subject: 'Tuiter password reset',
+      to: user.email,
+      from: ENV['EMAIL_FROM'],
+      track_opens: 'true',
+      message_stream: 'outbound'
+    )
   end
 end
