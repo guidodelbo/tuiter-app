@@ -30,9 +30,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       } }
     end
 
-    assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
     assert_not user.activated?
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    assert_not flash.empty?
+    follow_redirect!
+    assert_template 'static_pages/home'
 
     log_in_as(user)
     assert_not is_logged_in?
