@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i.freeze
 
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -13,7 +15,7 @@ class User < ApplicationRecord
   # allowing nil safe since 'has_secure_password' includes a separate presence validation that catches nil passwords
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  # Returns the hash digest of the given string.
+  # returns the hash digest of the given string.
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
              BCrypt::Engine::MIN_COST
