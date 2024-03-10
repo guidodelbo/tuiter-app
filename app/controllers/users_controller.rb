@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:info] = 'Please check your email to activate your account'
-      redirect_to root_path
+      redirect_to root_url
     else
       render 'new'
     end
@@ -62,14 +62,6 @@ class UsersController < ApplicationController
     end
 
     # before filters
-
-    def logged_in_user
-      return if logged_in?
-
-      store_location
-      flash[:danger] = 'Please log in'
-      redirect_to login_url
-    end
 
     def correct_user
       @user = User.find(params[:id])
