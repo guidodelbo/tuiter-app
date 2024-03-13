@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
+gem 'active_storage_validations', '0.8.9'
 gem 'bcrypt', '~> 3.1.13'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -10,7 +11,9 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'faker', '2.11.0'
+gem 'image_processing', '1.9.3'
 gem 'jbuilder', '~> 2.7'
+gem 'mini_magick', '4.9.5'
 gem 'postmark-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
@@ -59,6 +62,7 @@ group :test do
 end
 
 group :production do
+  gem 'aws-sdk-s3', '1.87.0', require: false
   gem 'pg', '~> 1.2.3'
 end
 
