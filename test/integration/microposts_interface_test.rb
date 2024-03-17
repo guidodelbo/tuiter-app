@@ -3,11 +3,11 @@ require 'test_helper'
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
+    log_in_as(@user)
+    get root_path
   end
 
   test 'micropost interface' do
-    log_in_as(@user)
-    get root_path
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
     assert_no_difference 'Micropost.count' do
@@ -37,8 +37,6 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   end
 
   test 'micropost sidebar count' do
-    log_in_as(@user)
-    get root_path
     assert_match "#{@user.microposts.count} tuits", response.body
 
     other_user = users(:clara)
@@ -48,5 +46,11 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     other_user.microposts.create!(content: 'testing content')
     get root_path
     assert_match '1 tuit', response.body
+  end
+
+  test 'feed on Home page' do
+    @user.feed.paginate(page: 1).each do |micropost|
+      assert_match CGI.escapeHTML(micropost.content), response.body
+    end
   end
 end

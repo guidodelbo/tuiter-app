@@ -103,6 +103,8 @@ class UserTest < ActiveSupport::TestCase
     clara = users(:clara)
     tom = users(:tom)
 
+    assert_equal michael.feed.distinct, michael.feed
+
     # posts from followed user
     clara.microposts.each do |claras_posts|
       assert michael.feed.include?(claras_posts)
