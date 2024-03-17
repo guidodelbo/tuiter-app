@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: %i[edit]
   resources :password_resets, only: %i[new create edit update]
   resources :microposts, only: %i[create destroy]
   get '/microposts', to: 'static_pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :relationships, only: %i[create destroy]
 end
