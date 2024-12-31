@@ -3,16 +3,11 @@
 
 # Tuiter App 🐦
 
-
 <h4 align="center">A Twitter-like social media app built with Ruby on Rails</h4>
 
----
-
-### [Live Demo ✨](https://tuiter-c74eae68137b.herokuapp.com/)
+## [Live Demo ✨](https://tuiter-c74eae68137b.herokuapp.com/)
 
 Sign up for an account, validate it through email, and create your first post with an image!
-
----
 
 ## About the App 🚀
 
@@ -29,8 +24,6 @@ It's built with **Ruby on Rails** and serves as a project for **learning purpose
 - **Image upload**: Supports image uploads using Active Storage and AWS S3.
 - **Follow system**: Users have a feed of microposts from the people they are following.
 - **Testing**: Comprehensive unit and integration test suite.
-
----
 
 ## Contributing 🧑‍💻
 
@@ -63,21 +56,16 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
     > bundle _2.2.17_ config set --local without 'production'
     > bundle _2.2.17_ install
     ```
-
 3. Set up the database:
     ```sh
     > rails db:migrate
     > rails db:seed
     ```
-
 4. Start the Rails server:
     ```sh
     > rails server
     ```
-
-You should now be able to access the app at [http://localhost:3000](http://localhost:3000).
-
----
+5. You should now be able to access the app at [http://localhost:3000](http://localhost:3000).
 
 ## Purpose and Progress 🛤️
 
