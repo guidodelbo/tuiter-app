@@ -1,96 +1,84 @@
-# Tuiter App
+[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-v6.1.4-red)](https://rubyonrails.org/)
+[![Heroku](https://img.shields.io/badge/Heroku-Live-brightgreen?logo=heroku)](https://tuiter-c74eae68137b.herokuapp.com/)
 
-## Purpose and Progress
+# Tuiter App 🐦
 
-The sole purpose of this application is to practice and improve Rails application development skills. It is a work in progress, with the aim of continually enhancing the application and incorporating more advanced and modern Rails versions and techniques.
 
-While this application started as a variant of the reference implementation from the [_Ruby on Rails Tutorial: Learn Web Development with Rails_](https://www.railstutorial.org/) (6th Edition) by [Michael Hartl](http://www.michaelhartl.com/), it has evolved and will continue to evolve as more features and techniques are added.
+<h4 align="center">A Twitter-like social media app built with Ruby on Rails</h4>
 
-## Key Features
+---
 
-The Tuiter App is a comprehensive implementation of a Twitter-like social media app.
+### [Live Demo ✨](https://tuiter-c74eae68137b.herokuapp.com/)
 
-It includes a wide range of features:
+Sign up for an account, validate it through email, and create your first post with an image!
 
-- **User registration and authentication**: Users can sign up with a secure password, log in, and log out. The application includes session remembering for persistent sessions.
+---
 
-- **Account activation**: New users receive an email with a link to activate their account using a secure token.
+## About the App 🚀
 
+The **Tuiter App** is an open-source, feature-rich, Twitter-like social media platform.
+
+It's built with **Ruby on Rails** and serves as a project for **learning purposes**, **testing new technologies**, and **showcasing Rails development practices**. Contributions are welcome to improve and expand the app further.
+
+### Key Features 🌟
+
+- **User registration and authentication**: Secure account creation, login, logout, and session remembering for persistent sessions.
+- **Account activation**:  New users receive an email with a link to activate their account using a secure token.
 - **Password reset**: Users can reset their forgotten passwords through a secure, email-based process.
+- **Microposts**: Create, read and delete short posts (like tweets) with optional image attachments.
+- **Image upload**: Supports image uploads using Active Storage and AWS S3.
+- **Follow system**: Users have a feed of microposts from the people they are following.
+- **Testing**: Comprehensive unit and integration test suite.
 
-- **Microposts**: Users can create, read, and delete microposts, which are short posts like tweets.
+---
 
-- **Image upload**: Users can attach an image to their microposts. The application uses the Active Storage Rails feature in combination with the AWS S3 service.
+## Contributing 🧑‍💻
 
-- **Feed**: Users have a feed of microposts from the people they are following.
+Contributions are more than welcome!
 
-- **Following users**: Users can follow and unfollow other users.
+Feel free to open an Issue or submit a Pull Request to suggest improvements or add new features.
 
-- **Comprehensive testing suite**: The application includes a full suite of unit and integration tests.
+### Run It Locally 🛠️
 
-## Getting started
+1. Prerequisites:
+    ```sh
+    > ruby -v
+    ruby 2.7.5
+    ```
+    ```sh
+    > rails -v
+    Rails 6.1.7.7
+    ```
+    ```sh
+    > node -v
+    v16.13.0
+    ```
+2. Install dependencies:
+    ```sh
+    > yarn add jquery@3.5.1 bootstrap@3.4.1
+    ```
 
-First, make sure you have Ruby and Rails installed. You can check this by running:
+    ```sh
+    > gem install bundler -v 2.2.17
+    > bundle _2.2.17_ config set --local without 'production'
+    > bundle _2.2.17_ install
+    ```
 
-```
-$ ruby -v
-$ rails -v
-```
+3. Set up the database:
+    ```sh
+    > rails db:migrate
+    > rails db:seed
+    ```
 
-You should see something like ruby 2.7.5 and Rails 6.1.4.
+4. Start the Rails server:
+    ```sh
+    > rails server
+    ```
 
-If you don't have Ruby installed, you can install it using a Ruby version manager like rbenv or RVM. Once you have Ruby installed, you can install Rails by running:
+You should now be able to access the app at [http://localhost:3000](http://localhost:3000).
 
- ```
-$ gem install rails -v 6.1.4
-```
+---
 
-Also make sure you’re using a compatible version of Node.js:
+## Purpose and Progress 🛤️
 
-```
-$ nvm install 16.13.0
-$ node -v
-v16.13.0
-```
-
-Clone the repo and `cd` into the directory:
-
-```
-$ git clone https://github.com/guidodelbo/tuiter_app.git
-$ cd tuiter_app
-```
-
-Then install the needed packages (while skipping any Ruby gems needed only in production):
-
-```
-$ yarn add jquery@3.5.1 bootstrap@3.4.1
-$ gem install bundler -v 2.2.17
-$ bundle _2.2.17_ config set --local without 'production'
-$ bundle _2.2.17_ install
-```
-
-Next, migrate the database:
-
-```
-$ rails db:migrate
-```
-
-Finally, run the test suite to verify that everything is working correctly:
-
-```
-$ rails test
-```
-
-If the test suite passes, you’ll be ready to seed the database with sample data:
-
-```
-$ rails db:seed
-```
-
-Finally, start the Rails server:
-
-```
-$ rails server
-```
-
-You should now be able to access the app at http://localhost:3000.
+This application was initially inspired by the [_Ruby on Rails Tutorial_](https://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/). Over time, it has evolved to include additional features and modern techniques to enhance functionality and usability. It is a **work in progress**, with the goal of continually improving the app.
