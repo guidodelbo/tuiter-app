@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.5'
+ruby '3.2.6'
 
 gem 'active_storage_validations', '0.8.9'
 gem 'bcrypt', '~> 3.1.13'
@@ -10,15 +10,14 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'faker', '2.11.0'
-gem 'image_processing', '1.9.3'
+gem 'faker', '~> 2.22'
+gem 'image_processing', '~> 1.12.0'
 gem 'jbuilder', '~> 2.7'
 gem 'mailgun-ruby', '~>1.2.16'
-gem 'mini_magick', '4.9.5'
-gem 'postmark-rails'
-gem 'puma', '~> 5.0'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
-gem 'sass-rails', '>= 6'
+gem 'mini_magick', '4.11.0'
+gem 'puma', '~> 5.6.8'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.7'
+gem 'sass-rails', '~> 6'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -33,8 +32,8 @@ gem 'will_paginate', '3.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
-  gem 'sqlite3', '~> 1.4'
+  gem 'dotenv-rails', '~> 2.8'
+  gem 'sqlite3', '~> 1.5'
 end
 
 group :development do
@@ -63,8 +62,8 @@ group :test do
 end
 
 group :production do
-  gem 'aws-sdk-s3', '1.87.0', require: false
-  gem 'pg', '~> 1.2.3'
+  gem 'aws-sdk-s3', '~> 1.131.0'
+  gem 'pg', '~> 1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

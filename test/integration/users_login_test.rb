@@ -61,9 +61,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test 'login with remembering' do
-    skip 'Temporarily skipping this test'
     log_in_as(@user, remember_me: '1')
-    assert_equal cookies[:remember_token], assigns(:user).remember_token
+
+    remember_token = cookies[:remember_token]
+    user = User.find_by(email: @user.email)
+
+    assert user.authenticated?(:remember, remember_token)
   end
 
   test 'login without remembering' do
