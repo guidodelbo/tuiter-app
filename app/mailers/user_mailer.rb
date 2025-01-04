@@ -5,9 +5,7 @@ class UserMailer < ApplicationMailer
     mail(
       subject: 'Tuiter account activation',
       to: user.email,
-      from: ENV['EMAIL_FROM'],
-      track_opens: 'true',
-      message_stream: 'outbound'
+      track_opens: 'true'
     )
   end
 
@@ -17,9 +15,7 @@ class UserMailer < ApplicationMailer
     mail(
       subject: 'Tuiter password reset',
       to: user.email,
-      from: ENV['EMAIL_FROM'],
-      track_opens: 'true',
-      message_stream: 'outbound'
+      track_opens: 'true'
     )
   end
 end
