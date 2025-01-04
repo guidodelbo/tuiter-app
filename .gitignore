@@ -44,6 +44,6 @@ config/definitions.rb
 
 .DS_Store
 
-.env
+/.env
 
 .rubocop.yml
