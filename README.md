@@ -1,11 +1,11 @@
-[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-v6.1.4-red)](https://rubyonrails.org/)
-[![Heroku](https://img.shields.io/badge/Heroku-Live-brightgreen?logo=heroku)](https://tuiter-c74eae68137b.herokuapp.com/)
+[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-v6.1.7.7-red)](https://rubyonrails.org/)
+[![Heroku](https://img.shields.io/badge/Heroku-Live-brightgreen?logo=heroku)](https://tuiter.guidodelbo.me/)
 
 # Tuiter App 🐦
 
 <h4 align="center">A Twitter-like social media app built with Ruby on Rails</h4>
 
-## [Live Demo ✨](https://tuiter-c74eae68137b.herokuapp.com/)
+## [Live Demo ✨](https://tuiter.guidodelbo.me/)
 
 Sign up for an account, validate it through email, and create your first post with an image!
 
@@ -36,7 +36,7 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
 1. Prerequisites:
     ```sh
     > ruby -v
-    ruby 2.7.5
+    ruby 3.2.6
     ```
     ```sh
     > rails -v
@@ -52,9 +52,9 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
     ```
 
     ```sh
-    > gem install bundler -v 2.2.17
-    > bundle _2.2.17_ config set --local without 'production'
-    > bundle _2.2.17_ install
+    > gem install bundler -v 2.6.2
+    > bundle _2.6.2_ config set --local without 'production'
+    > bundle _2.6.2_ install
     ```
 3. Set up the database:
     ```sh

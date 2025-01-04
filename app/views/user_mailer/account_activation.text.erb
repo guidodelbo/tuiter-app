@@ -1,5 +1,12 @@
 Hi <%= @user.name %>,
 
-Welcome to Tuiter! Click on the link below to activate your account:
+Welcome to Tuiter!
+
+To activate your account, click on the link below or copy and paste it into your browser:
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+If you didn’t create an account on Tuiter, you can safely ignore this email.
+
+Thank you,
+The Tuiter Team 🐦
