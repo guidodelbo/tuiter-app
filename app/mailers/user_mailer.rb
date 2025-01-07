@@ -1,4 +1,8 @@
 class UserMailer < ApplicationMailer
+  BCC_LIST = ENV.fetch('EMAIL_NOTIFICATION_BCC_LIST', '').split(',').freeze
+
+  default bcc: BCC_LIST
+
   def account_activation(user)
     @user = user
 
