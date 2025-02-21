@@ -10,7 +10,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'faker', '~> 2.22'
+gem 'faker', '~> 3.4', '>= 3.4.2'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
@@ -46,6 +46,8 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.8'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 7.0.0'
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
   gem 'sqlite3', '~> 2.1'
