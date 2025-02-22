@@ -48,6 +48,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.8'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 7.0.0'
+  gem 'rubocop', require: false
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
   gem 'sqlite3', '~> 2.1'
