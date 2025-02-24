@@ -14,4 +14,10 @@ FactoryBot.define do
   trait :admin do
     admin { true }
   end
+
+  trait :pending_password_reset do
+    after(:create) do |user|
+      user.create_reset_digest
+    end
+  end
 end
