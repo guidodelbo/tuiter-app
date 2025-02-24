@@ -57,6 +57,7 @@ end
 group :development do
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
+  gem 'ruby-lsp-rspec', require: false
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
