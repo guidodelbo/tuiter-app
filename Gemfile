@@ -49,15 +49,20 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 7.0.0'
   gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-performance', require: false
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
+  gem 'ruby-lsp-rspec', require: false
   gem 'sqlite3', '~> 2.1'
 end
 
 group :development do
   gem 'letter_opener'
   gem 'listen', '~> 3.3'
-  gem 'ruby-lsp-rspec', require: false
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'

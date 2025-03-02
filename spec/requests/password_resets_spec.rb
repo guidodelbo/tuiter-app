@@ -138,7 +138,7 @@ RSpec.describe 'PasswordResets' do
         subject
 
         expect(user.reload.reset_digest).to be_nil
-        expect(is_logged_in?).to be true
+        expect(is_logged_in?(user)).to be true
         expect(flash[:success]).to be_present
         expect(response).to redirect_to user
       end
