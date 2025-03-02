@@ -4,7 +4,11 @@
     <%= f.text_area :content, placeholder: 'Compose new tuit...' %>
   </div>
   <%= f.submit 'Post', class: "btn btn-primary" %>
-  <span class="image">
-    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+  <span class="image" data-controller="image-validator">
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png',
+                    data: {
+                      image_validator_target: 'input',
+                      action: 'change->image-validator#validateSize'
+                    } %>
   </span>
 <% end %>
