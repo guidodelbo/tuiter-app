@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ "input" ]
 
   validateSize() {
-    debugger
     const sizeInMegabytes = this.inputTarget.files[0]?.size / (1024 * 1024)
 
     if (sizeInMegabytes > 5) {
