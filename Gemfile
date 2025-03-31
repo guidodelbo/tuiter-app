@@ -19,6 +19,7 @@ gem 'kamal', require: false
 gem 'mailgun-ruby', '~>1.2.16'
 gem 'mini_magick', '4.11.0'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'pg', '~> 1.4'
 gem 'propshaft'
 gem 'puma', '~> 6.6'
 gem 'rails', '~> 8.0.1'
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.8'
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
-  gem 'sqlite3', '~> 2.1'
 end
 
 group :development do
@@ -71,7 +71,6 @@ end
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.131.0'
-  gem 'pg', '~> 1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
