@@ -4,11 +4,23 @@ FROM ruby:3.4.2
 # Install system dependencies
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
-    nodejs \
-    npm \
+    curl \
     postgresql-client \
     netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
+
+# Install nvm and Node.js 16.x
+ENV NVM_DIR /usr/local/nvm
+RUN mkdir -p $NVM_DIR
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+ENV NODE_VERSION 16.20.2
+RUN . $NVM_DIR/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm alias default $NODE_VERSION && \
+    nvm use default
+
+# Add nvm to PATH
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # Install Yarn
 RUN npm install -g yarn
