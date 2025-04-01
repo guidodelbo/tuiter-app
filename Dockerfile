@@ -9,6 +9,9 @@ RUN apt-get update -qq && apt-get install -y \
     netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
 
+# Install Yarn
+RUN npm install -g yarn
+
 # Set the working directory
 WORKDIR /app
 
