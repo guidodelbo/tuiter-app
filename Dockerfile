@@ -5,6 +5,7 @@ FROM ruby:3.4.2
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     nodejs \
+    npm \
     postgresql-client \
     netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
