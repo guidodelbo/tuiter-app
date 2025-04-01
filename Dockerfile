@@ -20,6 +20,13 @@ RUN bundle install && \
 # Copy the application code
 COPY . .
 
+# Install JavaScript dependencies
+COPY package.json yarn.lock ./
+RUN yarn install
+
+# Precompile assets
+RUN RAILS_ENV=production bundle exec rails assets:precompile
+
 # Add a script to be executed every time the container starts
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

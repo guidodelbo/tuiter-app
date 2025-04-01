@@ -9,6 +9,7 @@ gem 'bcrypt', '~> 3.1.13'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'dotenv-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'faker', '~> 2.22'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -46,7 +47,6 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.8'
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
 end
