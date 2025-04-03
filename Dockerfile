@@ -40,8 +40,15 @@ COPY . .
 COPY package.json yarn.lock ./
 RUN yarn install
 
+# Set environment variables for asset precompilation
+ENV RAILS_ENV=production
+ENV NODE_ENV=production
+ENV RAILS_SERVE_STATIC_FILES=true
+
 # Precompile assets
-RUN RAILS_ENV=production bundle exec rails assets:precompile
+RUN bundle exec rails assets:precompile && \
+    bundle exec rails assets:clean && \
+    rm -rf /app/tmp/cache
 
 # Add a script to be executed every time the container starts
 COPY entrypoint.sh /usr/bin/
