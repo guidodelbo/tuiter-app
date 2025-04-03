@@ -7,6 +7,7 @@ RUN apt-get update -qq && apt-get install -y \
     curl \
     postgresql-client \
     netcat-traditional \
+    libvips \
     && rm -rf /var/lib/apt/lists/*
 
 # Install nvm and Node.js 16.x
