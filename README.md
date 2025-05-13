@@ -1,5 +1,7 @@
 [![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-v8.0.1-red)](https://rubyonrails.org/)
-[![Heroku](https://img.shields.io/badge/Heroku-Live-brightgreen?logo=heroku)](https://tuiter.guidodelbo.me/)
+[![AWS EC2](https://img.shields.io/badge/AWS-EC2-orange?logo=amazon-aws)](https://tuiter.guidodelbo.me/)
+
+[![Kamal](https://img.shields.io/badge/Kamal-Deployed-green)](https://tuiter.guidodelbo.me/)
 
 # Tuiter App 🐦
 
@@ -25,6 +27,8 @@ It's built with **Ruby on Rails** and serves as a project for **learning purpose
 - **Follow system**: Users have a feed of microposts from the people they are following.
 - **Modern JavaScript**: Uses Stimulus.js for dynamic features.
 - **Testing**: Comprehensive RSpec test suite including system, request, and unit tests.
+- **Dockerized**: Application runs in Docker containers for consistency across environments.
+- **Kamal Deployment**: Easy deployment to AWS EC2 using Kamal.
 
 ## Contributing 🧑‍💻
 
@@ -45,7 +49,7 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
     ```
     ```sh
     > node -v
-    v16.13.0
+    v16.20.2
     ```
 2. Install dependencies:
     ```sh
@@ -90,5 +94,7 @@ As an **open-source project** and **continuous work in progress**, it has been e
 - Added Stimulus.js for modern JavaScript functionality
 - Integrated Mailgun for production email delivery
 - Configured AWS S3 for image storage in production
+- Migrated from Heroku to AWS EC2 using Docker and Kamal
+- Added SSL support with Let's Encrypt
 
 More improvements are planned and contributions are always welcome! Check the Issues tab for planned features or suggest your own.
