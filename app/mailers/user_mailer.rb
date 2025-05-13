@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  BCC_LIST = ENV.fetch('EMAIL_NOTIFICATION_BCC_LIST', '').split(',').freeze
+  BCC_LIST = Rails.application.credentials.email.bcc_list.split(',').freeze
 
   default bcc: BCC_LIST
 
