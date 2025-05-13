@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails
-rm -f /app/tmp/pids/server.pid
+rm -f /rails/tmp/pids/server.pid
 
 # Enable jemalloc for reduced memory usage and latency.
 if [ -z "${LD_PRELOAD+x}" ]; then
@@ -24,9 +24,14 @@ do
 done
 echo "PostgreSQL is ready!"
 
-# Create and migrate the database
-echo "Running database migrations..."
-bundle exec rails db:migrate RAILS_ENV=production
+# Skip migrations if bundler check fails
+if bundle check; then
+  # Create and migrate the database
+  echo "Running database migrations..."
+  bundle exec rails db:migrate RAILS_ENV=production
+else
+  echo "Bundle check failed, skipping migrations"
+fi
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile)
 exec "$@"
