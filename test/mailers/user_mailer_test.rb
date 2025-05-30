@@ -8,8 +8,8 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal 'Tuiter account activation', mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ENV['EMAIL_FROM'], mail[:from].value
-    assert_equal ENV.fetch('EMAIL_NOTIFICATION_BCC_LIST', '').split(','), mail.bcc
+    assert_equal Rails.application.credentials.email.from, mail[:from].value
+    assert_equal Rails.application.credentials.email.bcc_list.split(','), mail.bcc
     assert_match user.name, mail.body.encoded
     assert_match user.activation_token, mail.body.encoded
     assert_match CGI.escape(user.email), mail.body.encoded
@@ -22,8 +22,8 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal 'Tuiter password reset', mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ENV['EMAIL_FROM'], mail[:from].value
-    assert_equal ENV.fetch('EMAIL_NOTIFICATION_BCC_LIST', '').split(','), mail.bcc
+    assert_equal Rails.application.credentials.email.from, mail[:from].value
+    assert_equal Rails.application.credentials.email.bcc_list.split(','), mail.bcc
     assert_match user.reset_token, mail.body.encoded
     assert_match CGI.escape(user.email), mail.body.encoded
   end

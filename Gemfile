@@ -19,6 +19,7 @@ gem 'kamal', require: false
 gem 'mailgun-ruby', '~>1.2.16'
 gem 'mini_magick', '4.11.0'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'pg', '~> 1.4'
 gem 'propshaft'
 gem 'puma', '~> 6.6'
 gem 'rails', '~> 8.0.1'
@@ -45,7 +46,7 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.8'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 7.0.0'
   gem 'rubocop', require: false
@@ -57,7 +58,6 @@ group :development, :test do
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
   gem 'ruby-lsp-rspec', require: false
-  gem 'sqlite3', '~> 2.1'
 end
 
 group :development do
@@ -80,7 +80,6 @@ end
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.131.0'
-  gem 'pg', '~> 1.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
