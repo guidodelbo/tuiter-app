@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TestHelpers
+module RequestSpecsHelpers
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: {
       session: {
@@ -11,15 +11,25 @@ module TestHelpers
     }
   end
 
-  # def log_in_as(user)
-  #   session[:user_id] = user.id
-  # end
-
   def is_logged_in?(user)
     session[:user_id] == user.id
   end
 end
 
+module SystemSpecsHelpers
+  def log_in_as(user, password: 'password')
+    visit login_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: password
+    click_button 'Log in'
+  end
+
+  def is_logged_in?(user)
+    page.has_link?('Log out', href: logout_path)
+  end
+end
+
 RSpec.configure do |config|
-  config.include TestHelpers
+  config.include RequestSpecsHelpers, type: :request
+  config.include SystemSpecsHelpers, type: :system
 end

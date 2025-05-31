@@ -8,7 +8,6 @@ gem 'bcrypt', '~> 3.1.13'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'bootstrap-will_paginate', '1.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'faker', '~> 3.4', '>= 3.4.2'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -40,7 +39,8 @@ gem 'webpacker', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'will_paginate', '3.3.0'
+gem 'will_paginate', '~> 4.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
