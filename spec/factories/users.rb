@@ -20,4 +20,9 @@ FactoryBot.define do
       user.create_reset_digest
     end
   end
+
+  trait :pending_activation do
+    activated { false }
+    activated_at { nil }
+  end
 end
