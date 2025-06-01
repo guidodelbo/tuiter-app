@@ -39,8 +39,6 @@ gem 'webpacker', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'will_paginate', '~> 4.0'
-gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
@@ -55,6 +53,8 @@ group :development, :test do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
+  gem 'will_paginate', '~> 4.0'
+  gem 'will_paginate-bootstrap'
 end
 
 group :development do
