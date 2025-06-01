@@ -49,8 +49,6 @@ config/definitions.rb
 
 /.env*
 
-.rubocop.yml
-
 /config/credentials/production.key
 
 coverage/
