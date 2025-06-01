@@ -73,6 +73,7 @@ group :test do
   gem 'minitest-reporters', '>= 1.3.8'
   gem 'rails-controller-testing', '>= 1.0.5'
   gem 'selenium-webdriver', '>= 4.11'
+  gem 'simplecov', require: false
 end
 
 group :production do

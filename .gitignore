@@ -52,3 +52,5 @@ config/definitions.rb
 .rubocop.yml
 
 /config/credentials/production.key
+
+coverage/
