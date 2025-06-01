@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   BCC_LIST = Rails.application.credentials.email.bcc_list.split(',').freeze
 
