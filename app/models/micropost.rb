@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Micropost < ApplicationRecord
   belongs_to :user
   has_one_attached :image
@@ -12,6 +14,6 @@ class Micropost < ApplicationRecord
                             message: 'should be less than 5MB' }
 
   def display_image
-    image.variant(resize_to_limit: [500, 500])
+    image.variant(resize_to_limit: [ 500, 500 ])
   end
 end

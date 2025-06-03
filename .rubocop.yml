@@ -1,0 +1,63 @@
+# Omakase Ruby styling for Rails
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+plugins:
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# RSpec specific configurations
+# RSpec:
+#   Language:
+#     Expectations:
+#       - expect
+#       - expect_any_instance_of
+#     Hooks:
+#       - after
+#       - around
+#       - before
+#       - context
+#       - describe
+#       - example
+#       - feature
+#       - given
+#       - it
+#       - scenario
+#       - shared_context
+#       - shared_examples
+#       - shared_examples_for
+
+# RSpec/DescribeClass:
+#   Enabled: false
+
+# RSpec/MultipleExpectations:
+#   Max: 8
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/system/**/*'
+    - 'spec/support/**/*'
+
+# RSpec/NestedGroups:
+#   Max: 5
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Layout/LineLength:
+  Max: 120
+
+FactoryBot/SyntaxMethods:
+  Enabled: false

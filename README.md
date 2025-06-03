@@ -61,12 +61,11 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
     ```
 3. Set up the database:
     ```sh
-    > rails db:migrate
-    > rails db:seed
+    > bin/setup
     ```
 4. Start the Rails server:
     ```sh
-    > rails server
+    > bin/dev
     ```
 5. You should now be able to access the app at [http://localhost:3000](http://localhost:3000).
 
@@ -75,12 +74,12 @@ Feel free to open an Issue or submit a Pull Request to suggest improvements or a
 The application uses RSpec for testing. To run the test suite:
 
 ```sh
-> rspec
+> bin/rspec
 ```
 
 To run specific test files:
 ```sh
-> rspec spec/system/users_login_spec.rb
+> bin/rspec spec/system/microposts/feed_spec.rb
 ```
 
 ## Purpose and Progress 🛤️

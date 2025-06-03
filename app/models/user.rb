@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :active_relationships,
@@ -27,11 +29,7 @@ class User < ApplicationRecord
 
   # returns the hash digest of the given string.
   def self.digest(string)
-    cost = if ActiveModel::SecurePassword.min_cost
-             BCrypt::Engine::MIN_COST
-           else
-             BCrypt::Engine.cost
-           end
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 
     BCrypt::Password.create(string, cost: cost)
   end

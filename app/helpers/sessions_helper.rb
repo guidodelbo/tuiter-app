@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
@@ -14,7 +16,8 @@ module SessionsHelper
 
   def log_out
     forget(current_user)
-    reset_session
+    session[:user_id] = nil
+    session[:session_token] = nil
     @current_user = nil
   end
 
@@ -41,7 +44,9 @@ module SessionsHelper
   end
 
   def current_user?(user)
-    user && current_user == user
+    return false if user.nil?
+
+    user == current_user
   end
 
   def logged_in?
