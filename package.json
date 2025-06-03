@@ -4,7 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.24.0",
-    "@babel/plugin-transform-class-properties": "^7.24.0",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
     "@babel/plugin-transform-destructuring": "^7.24.0",
     "@babel/plugin-transform-object-rest-spread": "^7.24.0",
     "@babel/plugin-transform-private-methods": "^7.24.0",
