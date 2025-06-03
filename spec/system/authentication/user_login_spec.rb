@@ -22,19 +22,39 @@ RSpec.describe 'UserLogin' do
   end
 
   context 'with valid information' do
-    it 'logs in and out successfully', :aggregate_failures do
-      fill_in 'Email', with: 'user@example.com'
-      fill_in 'Password', with: 'password'
-      click_button 'Log in'
+    context 'when user is activated' do
+      it 'logs in and out successfully', :aggregate_failures do
+        fill_in 'Email', with: 'user@example.com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
 
-      expect(page).to have_current_path(user_path(user))
-      expect(page).to have_link('Log out', href: logout_path)
-      expect(page).to have_link('Profile', href: user_path(user))
-      expect(page).to have_no_link('Log in', href: login_path)
+        expect(page).to have_current_path(user_path(user))
+        expect(page).to have_link('Log out', href: logout_path)
+        expect(page).to have_link('Profile', href: user_path(user))
+        expect(page).to have_no_link('Log in', href: login_path)
 
-      click_link 'Log out'
-      expect(page).to have_current_path(root_path)
-      expect(page).to have_link('Log in', href: login_path)
+        click_link 'Log out'
+        expect(page).to have_current_path(root_path)
+        expect(page).to have_link('Log in', href: login_path)
+      end
+    end
+
+    context 'when user is not activated' do
+      before do
+        user.update_attribute(:activated, false)
+      end
+
+      it 'does not log in and shows an error message', :aggregate_failures do
+        fill_in 'Email', with: 'user@example.com'
+        fill_in 'Password', with: 'password'
+        click_button 'Log in'
+
+        within('div.alert-warning') do
+          expect(page).to have_content('Account not activated, check your email for the activation link')
+        end
+
+        expect(page).to have_current_path(root_path)
+      end
     end
   end
 
