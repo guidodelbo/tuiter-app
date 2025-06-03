@@ -23,10 +23,6 @@ module SystemSpecsHelpers
     fill_in 'Password', with: password
     click_button 'Log in'
   end
-
-  def is_logged_in?(user)
-    page.has_link?('Log out', href: logout_path)
-  end
 end
 
 RSpec.configure do |config|

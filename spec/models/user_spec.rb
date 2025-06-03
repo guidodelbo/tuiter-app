@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe User do
   let(:user) { FactoryBot.build(:user) }
+  let(:valid_emails) { %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn] }
+  let(:invalid_emails) { %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com foo@bar..com] }
 
   describe 'validations' do
     it 'is valid with valid attributes' do
@@ -31,19 +33,14 @@ RSpec.describe User do
     end
 
     it 'accepts valid email addresses' do
-      valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
-
-      valid_addresses.each do |valid_address|
+      valid_emails.each do |valid_address|
         user.email = valid_address
         expect(user).to be_valid, "#{valid_address.inspect} should be valid"
       end
     end
 
     it 'rejects invalid email addresses' do
-      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com
-                             foo@bar..com]
-
-      invalid_addresses.each do |invalid_address|
+      invalid_emails.each do |invalid_address|
         user.email = invalid_address
         expect(user).not_to be_valid, "#{invalid_address.inspect} should be invalid"
       end
@@ -95,7 +92,7 @@ RSpec.describe User do
       user.save
     end
 
-    it 'follows a user' do
+    it 'follows a user', :aggregate_failures do
       expect(user.following?(other_user)).to be false
 
       user.follow(other_user)
@@ -103,7 +100,7 @@ RSpec.describe User do
       expect(other_user.followers.include?(user)).to be true
     end
 
-    it 'unfollows a user' do
+    it 'unfollows a user', :aggregate_failures do
       user.follow(other_user)
       expect(user.following?(other_user)).to be true
 
@@ -119,9 +116,9 @@ RSpec.describe User do
     let(:third_user) { FactoryBot.create(:user) }
 
     before do
-      user.microposts << FactoryBot.create_list(:micropost, 3, user: user)
-      other_user.microposts << FactoryBot.create_list(:micropost, 3, user: other_user)
-      third_user.microposts << FactoryBot.create_list(:micropost, 3, user: third_user)
+      FactoryBot.create_list(:micropost, 3, user: user)
+      FactoryBot.create_list(:micropost, 3, user: other_user)
+      FactoryBot.create_list(:micropost, 3, user: third_user)
 
       user.follow(other_user)
       user.follow(third_user)
@@ -129,18 +126,23 @@ RSpec.describe User do
       third_user.follow(other_user)
     end
 
-    it 'has the right posts' do
+    it 'has the right posts', :aggregate_failures do # rubocop:disable RSpec/ExampleLength
       other_user.microposts.each do |micropost|
         expect(user.feed.include?(micropost)).to be true
         expect(third_user.feed.include?(micropost)).to be true
+        expect(other_user.feed.include?(micropost)).to be true
       end
 
       user.microposts.each do |micropost|
         expect(other_user.feed.include?(micropost)).to be true
+        expect(user.feed.include?(micropost)).to be true
+        expect(third_user.feed.include?(micropost)).to be false
       end
 
       third_user.microposts.each do |micropost|
         expect(user.feed.include?(micropost)).to be true
+        expect(third_user.feed.include?(micropost)).to be true
+        expect(other_user.feed.include?(micropost)).to be false
       end
     end
   end
