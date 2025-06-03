@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'StaticPages' do
   shared_examples 'renders page' do |path, title, template = nil|
-    it "renders #{title.downcase} page" do
+    it "renders #{title.downcase} page", :aggregate_failures do
       get send("#{path}_path")
 
       expect(response).to render_template(template || path)
@@ -13,18 +13,18 @@ RSpec.describe 'StaticPages' do
   end
 
   describe 'GET /' do
-    include_examples 'renders page', :root, 'Home', :home
+    it_behaves_like 'renders page', :root, 'Home', :home
   end
 
   describe 'GET /help' do
-    include_examples 'renders page', :help, 'Help'
+    it_behaves_like 'renders page', :help, 'Help'
   end
 
   describe 'GET /about' do
-    include_examples 'renders page', :about, 'About'
+    it_behaves_like 'renders page', :about, 'About'
   end
 
   describe 'GET /contact' do
-    include_examples 'renders page', :contact, 'Contact'
+    it_behaves_like 'renders page', :contact, 'Contact'
   end
 end

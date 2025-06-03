@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Relationships' do
   describe 'POST /relationships' do
-    subject { post relationships_path, params: params }
+    subject(:post_relationship) { post relationships_path, params: params }
 
     context 'when not logged in' do
       let(:params) { { followed_id: 1 } }
 
-      it 'redirects to login url' do
-        expect { subject }.not_to change(Relationship, :count)
+      it 'redirects to login url', :aggregate_failures do
+        expect { post_relationship }.not_to change(Relationship, :count)
         expect(response).to redirect_to login_url
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe 'Relationships' do
       before { log_in_as(user) }
 
       it 'creates a relationship' do
-        expect { subject }.to change(Relationship, :count).by(1)
+        expect { post_relationship }.to change(Relationship, :count).by(1)
       end
 
       it 'creates a relationship with Ajax' do
@@ -33,13 +33,13 @@ RSpec.describe 'Relationships' do
   end
 
   describe 'DELETE /relationships/:id' do
-    subject { delete relationship_path(relationship) }
+    subject(:delete_relationship) { delete relationship_path(relationship) }
 
     context 'when not logged in' do
       let(:relationship) { 1 }
 
-      it 'redirects to login url' do
-        expect { subject }.not_to change(Relationship, :count)
+      it 'redirects to login url', :aggregate_failures do
+        expect { delete_relationship }.not_to change(Relationship, :count)
         expect(response).to redirect_to login_url
       end
     end
@@ -51,8 +51,8 @@ RSpec.describe 'Relationships' do
 
       before { log_in_as(user) }
 
-      it 'destroys a relationship' do
-        expect { subject }.to change(Relationship, :count).by(-1)
+      it 'destroys a relationship', :aggregate_failures do
+        expect { delete_relationship }.to change(Relationship, :count).by(-1)
         expect(response).to redirect_to other_user
       end
 

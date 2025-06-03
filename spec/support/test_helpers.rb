@@ -26,6 +26,7 @@ module SystemSpecsHelpers
 end
 
 RSpec.configure do |config|
+  config.include ApplicationHelper
   config.include RequestSpecsHelpers, type: :request
   config.include SystemSpecsHelpers, type: :system
 end

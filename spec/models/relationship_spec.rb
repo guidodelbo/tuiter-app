@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Relationship do
   let(:follower) { FactoryBot.create(:user) }
   let(:followed) { FactoryBot.create(:user) }
-  let(:relationship) { Relationship.new(follower_id: follower.id, followed_id: followed.id) }
+  let(:relationship) { described_class.new(follower_id: follower.id, followed_id: followed.id) }
 
   it 'is valid with valid attributes' do
     expect(relationship).to be_valid

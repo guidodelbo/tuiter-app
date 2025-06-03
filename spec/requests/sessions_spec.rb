@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'Sessions' do
   shared_examples 'invalid login attempt' do
-    it 'does not log in the user' do
-      subject
+    it 'does not log in the user', :aggregate_failures do
+      make_request
 
       expect(session[:user_id]).to be_nil
       expect(response).to render_template(:new)
@@ -21,9 +21,9 @@ RSpec.describe 'Sessions' do
   end
 
   describe 'POST /login' do
-    let(:user) { FactoryBot.create(:user) }
+    subject(:make_request) { post login_path, params: params }
 
-    subject { post login_path, params: params }
+    let(:user) { FactoryBot.create(:user) }
 
     context 'with valid information' do
       let(:params) do
@@ -36,19 +36,19 @@ RSpec.describe 'Sessions' do
         }
       end
 
-      it 'logs in the user' do
-        subject
+      it 'logs in the user', :aggregate_failures do
+        make_request
 
         expect(session[:user_id]).to eq user.id
         expect(cookies[:remember_token]).to be_present
         expect(response).to redirect_to user
       end
 
-      it 'redirects to the forwarding url if exists' do
+      it 'redirects to the forwarding url if exists', :aggregate_failures do
         get users_path
         expect(session[:forwarding_url]).to eq users_url
 
-        subject
+        make_request
 
         expect(response).to redirect_to users_url
         expect(session[:forwarding_url]).to be_nil
@@ -58,7 +58,7 @@ RSpec.describe 'Sessions' do
     context 'with invalid information' do
       let(:params) { { session: { email: '' } } }
 
-      include_examples 'invalid login attempt'
+      it_behaves_like 'invalid login attempt'
     end
 
     context 'with valid email but invalid password' do
@@ -71,7 +71,7 @@ RSpec.describe 'Sessions' do
         }
       end
 
-      include_examples 'invalid login attempt'
+      it_behaves_like 'invalid login attempt'
     end
   end
 
@@ -82,7 +82,7 @@ RSpec.describe 'Sessions' do
       log_in_as(user)
     end
 
-    it 'logs out the user' do
+    it 'logs out the user', :aggregate_failures do
       expect(session[:user_id]).to eq user.id
 
       delete logout_path
