@@ -17,7 +17,7 @@ gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem 'kamal', require: false
-gem 'mailgun-ruby', '~>1.2.16'
+gem 'mailgun-ruby', '~>1.3.6'
 gem 'mini_magick', '~> 5.2.0'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'pg', '~> 1.4'
