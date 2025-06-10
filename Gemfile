@@ -17,7 +17,6 @@ gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem 'kamal', require: false
-gem 'mailgun-ruby', '~>1.2.16'
 gem 'mini_magick', '~> 5.2.0'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'pg', '~> 1.4'
@@ -35,6 +34,8 @@ gem 'thruster', require: false
 gem 'turbolinks', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
+gem 'will_paginate', '~> 4.0'
+gem 'will_paginate-bootstrap'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -55,8 +56,6 @@ group :development, :test do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
-  gem 'will_paginate', '~> 4.0'
-  gem 'will_paginate-bootstrap'
 end
 
 group :development do
@@ -79,7 +78,8 @@ group :test do
 end
 
 group :production do
-  gem 'aws-sdk-s3', '~> 1.131.0'
+  gem 'aws-sdk-s3', '~> 1'
+  gem 'mailgun-ruby', '~>1.3.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
