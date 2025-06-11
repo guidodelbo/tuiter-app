@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.4.2'
 
-gem 'active_storage_validations', '0.8.9'
+gem 'active_storage_validations'
 gem 'bcrypt', '~> 3.1.13'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
