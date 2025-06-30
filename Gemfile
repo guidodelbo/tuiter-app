@@ -79,7 +79,7 @@ end
 
 group :production do
   gem 'aws-sdk-s3', '~> 1'
-  gem 'mailgun-ruby', '~>1.3.6'
+  gem 'mailgun-ruby', '~>1.3.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
