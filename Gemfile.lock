@@ -151,7 +151,7 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
-    faker (3.5.1)
+    faker (3.5.2)
       i18n (>= 1.8.11, < 2)
     faraday (2.13.1)
       faraday-net_http (>= 2.0, < 3.5)
@@ -558,7 +558,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   dotenv-rails
   factory_bot_rails
-  faker (~> 3.4, >= 3.4.2)
+  faker (~> 3.5)
   guard (>= 2.16.2)
   guard-minitest (>= 2.4.6)
   image_processing (~> 1.2)

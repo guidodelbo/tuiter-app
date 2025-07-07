@@ -11,7 +11,7 @@ gem 'bcrypt', '~> 3.1.13'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'faker', '~> 3.4', '>= 3.4.2'
+gem 'faker', '~> 3.5'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
